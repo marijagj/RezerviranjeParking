@@ -1,0 +1,15 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center"
+    android:orientation="horizontal"
+    tools:context=".ReservationActivity">
+
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.rezerviranjeparking.ReservationFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_reservation" />
+</RelativeLayout>
