@@ -35,6 +35,7 @@ public class ReservationFragment extends Fragment{
     String vreme;
     public ReservationFragment() {
     }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         return inflater.inflate(R.layout.fragment_reservation, container, false);
@@ -45,14 +46,14 @@ public class ReservationFragment extends Fragment{
         TextView textView = (TextView) getActivity().findViewById(R.id.text);
         Intent intent = getActivity().getIntent();
         String grad = intent.getStringExtra("Grad");
-        textView.setText("Вие го избравте градот:" + grad);
-        //Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        //getActivity().setSupportActionBar(toolbar);
-        //getSupportActionBar().setTitle("Паркинг резервација");
+        String user =intent.getStringExtra("User");
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Вие го избравте градот: "+grad);
         final Calendar myCalendar = Calendar.getInstance();
 
         EditText edittext = (EditText) getActivity().findViewById(R.id.datum);
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+        Calendar calendar=Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dialog = new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -71,7 +72,6 @@ public class ReservationFragment extends Fragment{
                 edittext.setText(sdf.format(myCalendar.getTime()));
                 text = edittext.getEditableText().toString();
             }
-
         };
 
         edittext.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +80,7 @@ public class ReservationFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                new DatePickerDialog(getActivity(), date, myCalendar
+                new DatePickerDialog(getActivity(), dialog, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
@@ -121,10 +121,12 @@ public class ReservationFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 Intent intentt= new Intent(v.getContext(),ParkingActivity.class);
+                intentt.putExtra("User",user);
                 intentt.putExtra("Datum",text);
                 intentt.putExtra("Vreme",vreme);
                 intentt.putExtra("Grad",grad);
                 startActivityForResult(intentt,REQUEST_CODE_DETAILS_ACTIVITY);
             }
         });
+
     }}

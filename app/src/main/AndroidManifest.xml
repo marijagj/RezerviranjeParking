@@ -29,11 +29,15 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".ConfirmActivity"></activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
+        <activity android:name=".ReservableActivity"></activity>
+        <activity android:name=".ConfirmActivity" />
         <activity android:name=".ParkingActivity" />
         <activity android:name=".TimeActivity" />
         <activity android:name=".ReservationActivity" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

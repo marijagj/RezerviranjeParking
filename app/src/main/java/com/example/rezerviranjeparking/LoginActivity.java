@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     Toast.makeText(LoginActivity.this,"Sign in successfully",Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+                    intent.putExtra("User",user);
                     startActivity(intent);
             } else{
                     Toast.makeText(LoginActivity.this,"Invalid Login",Toast.LENGTH_SHORT).show();

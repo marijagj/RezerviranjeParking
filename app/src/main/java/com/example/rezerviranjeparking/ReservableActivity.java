@@ -1,6 +1,5 @@
 package com.example.rezerviranjeparking;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -8,45 +7,40 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class ParkingActivity extends AppCompatActivity {
-    ArrayList<Parking> arrayList;
+public class ReservableActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DBHelper databaseHelper;
-    String city,date,user,time;
+    ArrayList<Rezervacii> arrayList;
+    String user,grad,parking,date,time;
     Intent intent;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parking);
-        intent = getIntent();
-        city=intent.getStringExtra("Grad");
-        date=intent.getStringExtra("Datum");
-        time = intent.getStringExtra("Vreme");
-        user=intent.getStringExtra("User");
-
+        setContentView(R.layout.activity_rezervacii);
+         intent=getIntent();
+         user=intent.getStringExtra("User");
+         grad=intent.getStringExtra("Grad");
+         parking=intent.getStringExtra("Parking");
+         date=intent.getStringExtra("Datum");
+         time=intent.getStringExtra("Vreme");
         androidx.appcompat.widget.Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Паркинзи во градот " + city);
-        recyclerView = (RecyclerView) findViewById(R.id.list1);
+        getSupportActionBar().setTitle("Резервации на "+ user );
+
+        recyclerView = (RecyclerView) findViewById(R.id.list2);
         databaseHelper = new DBHelper(this);
-        displayParking();
+        displayReservations();
     }
-
-
-    private void displayParking() {
-        arrayList = new ArrayList<>(databaseHelper.getAllParkingPlaces(city));
+    private void displayReservations() {
+        arrayList = new ArrayList<>(databaseHelper.getAllReservations(user));
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        MyParkingAdapter adapter = new MyParkingAdapter(getApplicationContext(), this, arrayList,intent);
+        MyReservationAdapter adapter = new MyReservationAdapter(getApplicationContext(), this, arrayList);
         recyclerView.setAdapter(adapter);
     }
 }

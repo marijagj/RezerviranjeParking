@@ -1,20 +1,23 @@
 package com.example.rezerviranjeparking;
 
-public class Parking {
+public class Rezervacii {
     private int id;
+    private String username;
     private String parking_name;
     private String city_name;
-    private String free;
+    private String date;
+    private String time;
     private Float lat;
     private Float lon;
-    public Parking(int id, String parking_name, String city_name, String free,Float lat,Float lon) {
+    public Rezervacii(int id, String username, String parking_name,String city_name, String date, String time,Float lat,Float lon) {
         this.id = id;
+        this.username=username;
         this.parking_name = parking_name;
         this.city_name = city_name;
-        this.free = free;
+        this.date = date;
+        this.time = time;
         this.lat=lat;
         this.lon=lon;
-
     }
     public int getId () {
         return id;
@@ -34,11 +37,17 @@ public class Parking {
     public void setCityName (String city_name){
         this.city_name = city_name;
     }
-    public String getFree () {
-        return free;
+    public String getDate () {
+        return date;
     }
-    public void setFree (String free){
-        this.free = free;
+    public void setDate (String date){
+        this.date = date;
+    }
+    public String getTime () {
+        return time;
+    }
+    public void setTime (String time){
+        this.time = time;
     }
     public Float getLat () {
         return lat;
@@ -52,4 +61,5 @@ public class Parking {
     public void setLon (Float lon){
         this.lon = lon;
     }
+
 }

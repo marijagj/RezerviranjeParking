@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:text="Вашето паркинг место"
-        android:textSize="30dp"/>
+        android:textSize="20dp"/>
     <TextView
         android:layout_marginTop="20dp"
         android:id="@+id/confirm2"
@@ -31,14 +31,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="е успешно резервирано !"
-        android:textSize="20dp"
+        android:text="е успешно резервирано"
+        android:textSize="15dp"
         android:layout_marginBottom="20dp"/>
     <Button
-        android:id="@+id/navigate"
+        android:id="@+id/nav"
         android:layout_below="@+id/confirm2"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Навигација"/>
+    <Button
+        android:id="@+id/moirezervacii"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/nav"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:text="Мои резервации"/>
 </RelativeLayout>

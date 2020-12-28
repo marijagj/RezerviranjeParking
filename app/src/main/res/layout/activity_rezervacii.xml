@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    tools:context=".ReservableActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -15,12 +14,11 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat"
         app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         tools:ignore="MissingConstraints"></androidx.appcompat.widget.Toolbar>
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/toolbar"
-        android:id="@+id/list1"
+        android:id="@+id/list2"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

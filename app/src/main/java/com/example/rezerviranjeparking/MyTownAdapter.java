@@ -20,11 +20,14 @@ public class MyTownAdapter extends RecyclerView.Adapter<MyTownAdapter.viewHolder
     Activity activity;
     ArrayList<City> arrayList;
     DBHelper database_helper;
+    Intent intent;
+    //String user = intent.getStringExtra("User");
 
-    public MyTownAdapter(Context context, Activity activity, ArrayList<City> arrayList) {
+    public MyTownAdapter(Context context, Activity activity, ArrayList<City> arrayList,Intent intent) {
         this.context = context;
         this.activity = activity;
         this.arrayList = arrayList;
+        this.intent=intent;
     }
 
 
@@ -38,11 +41,13 @@ public class MyTownAdapter extends RecyclerView.Adapter<MyTownAdapter.viewHolder
     public void onBindViewHolder(final MyTownAdapter.viewHolder holder, final int position) {
         holder.cname.setText(arrayList.get(position).getCityName());
         String grad=arrayList.get(position).getCityName();
+        String user=intent.getStringExtra("User");
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(v.getContext(),ReservationActivity.class);
                 intent.putExtra("Grad",grad);
+                intent.putExtra("User",user);
                 activity.startActivityForResult(intent,1);
             }
         });

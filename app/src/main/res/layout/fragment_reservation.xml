@@ -19,17 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/toolbar"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="Изберете датум "
-        android:textSize="20dp"
-        android:textAlignment="center"/>
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/text"
-        android:layout_marginTop="10dp"
-        android:text="Сега изберете датум"
         android:textSize="20dp"
         android:textAlignment="center"/>
 
@@ -38,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="50dp"
         android:clickable="true"
         android:focusable="false" />
 
@@ -58,7 +49,7 @@
         android:layout_below="@id/datum"
         android:layout_centerVertical="true"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="162dp"
+        android:layout_marginTop="150dp"
         android:entries="@array/chasovi"
         android:prompt="@string/choose_chas"
         android:spinnerMode="dialog" />
@@ -68,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/spinner"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="50dp"
         android:text="Листа од паркинзи" />
 
 </RelativeLayout>
